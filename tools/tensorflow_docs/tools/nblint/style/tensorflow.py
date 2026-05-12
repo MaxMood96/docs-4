@@ -137,7 +137,7 @@ def split_doc_path(filepath):
     parts = fp.parts
     idx = parts.index(dirname)
     docs_dir = pathlib.Path(*parts[idx:idx + offset])
-    rel_path = fp.relative_to(*parts[:idx + offset])
+    rel_path = fp.relative_to(pathlib.Path(*parts[: idx + offset]))
     return docs_dir, rel_path
 
   if "site" in fp_full.parts:
